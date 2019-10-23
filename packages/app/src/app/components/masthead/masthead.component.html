@@ -3,7 +3,10 @@
     id="{{ariaId}}"
     class="h-access-visible"
   >{{appTitle}}</h1>
-  <app-logo class="masthead__logo"></app-logo>
+  <app-logo
+    class="masthead__logo"
+    ariaLabelledBy="{{ariaId}}"
+  ></app-logo>
   <button
     class="masthead__btn h-button-icon"
     aria-label="Delete All Bits"
