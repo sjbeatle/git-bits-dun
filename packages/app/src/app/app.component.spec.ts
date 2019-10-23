@@ -1,11 +1,13 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+// import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        // FaIconComponent,
       ],
     }).compileComponents();
   }));

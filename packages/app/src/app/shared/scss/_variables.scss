@@ -42,3 +42,9 @@ $font-size: 19;
 @function get-rem($size) {
   @return ($size / $font-size) + rem;
 }
+
+
+/*------------------------------------*\
+  #GRID BREAKPOINTS
+\*------------------------------------*/
+$md-min: 600px;
