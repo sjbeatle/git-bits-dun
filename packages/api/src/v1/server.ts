@@ -1,5 +1,5 @@
-import express from 'express';
 import cors from 'cors';
+import express from 'express';
 import { todoDbConnect } from './db';
 import { initRoutes } from './routes';
 
@@ -13,6 +13,7 @@ server.use(express.urlencoded({ extended: true }));
 
 initRoutes(server);
 
-server.listen(server.get("port"), () => {
-  console.log("Listening at http://localhost:%d", server.get("port"));
+server.listen(server.get('port'), () => {
+  // tslint:disable-next-line:no-console
+  console.log('Listening at http://localhost:%d', server.get('port'));
 });

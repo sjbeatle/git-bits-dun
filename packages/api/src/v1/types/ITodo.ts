@@ -5,4 +5,4 @@ export interface ITodo extends Document {
   priority?: boolean;
   createdDate?: string;
   updatedDate?: string;
-};
+}
