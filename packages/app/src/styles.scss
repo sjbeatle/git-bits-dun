@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+@import 'mixins';
+@import '../node_modules/reset-css/sass/reset';
+
+* {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  @include antialias();
+}
+
+html {
+  font-size: $font-size + px;
+  color: $black;
+  background-color: $background-base;
+}
+
+body {
+}
+
+/*------------------------------------*\
+  #HELPER SELECTORS
+\*------------------------------------*/
+a,
+.h-link {
+  color: $link-color;
+  background: none;
+  border: none;
+  box-shadow: none;
+  transition: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    top: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  &:focus {
+    outline: 2px dashed $focus-outline-color;
+    border: none;
+    box-shadow: none;
+  }
+}
