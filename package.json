@@ -1,0 +1,16 @@
+{
+  "name": "git-bits-dun",
+  "version": "1.0.0",
+  "description": "A Challenge",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sjbeatle/git-bits-dun.git"
+  },
+  "scripts": {
+    "start": "cd packages/api && npm start & cd packages/app && npm start",
+    "install": "cd packages/api && npm i && cd ../app && npm i",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Steven Black"
+}
