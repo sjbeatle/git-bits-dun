@@ -1,0 +1,50 @@
+/*------------------------------------*\
+  #COLORS
+\*------------------------------------*/
+$black: #232323;
+$white: #fdfdfd;
+
+$pure-white: #fff;
+$pure-black: #000;
+$shadow-transparent: 0px 0px 5px rgba(0, 0, 0, 0);
+$shadow-default: 0px 0px 5px rgba(0, 0, 0, .25);
+$shadow-blue: 0px 0px 7px rgba(#6399b8, 1);
+
+/*------------------------------------*\
+  #CONTEXTUAL COLORS
+\*------------------------------------*/
+// links
+$link-color: #6399b8;
+$focus-outline-color: #781bb6;
+
+// backgrounds
+$background-base: #e1e3e5;
+$background-masthead: $white;
+
+
+/*------------------------------------*\
+  #BOX-MODEL
+\*------------------------------------*/
+$page-padding: 1rem;
+
+
+/*------------------------------------*\
+  #ELEMENTS
+\*------------------------------------*/
+$border-default: 1px solid #ababab;
+
+
+/*------------------------------------*\
+  #FONTS
+\*------------------------------------*/
+$font-size: 19;
+
+@function get-rem($size) {
+  @return ($size / $font-size) + rem;
+}
+
+
+/*------------------------------------*\
+  #GRID BREAKPOINTS
+\*------------------------------------*/
+$md-min: 600px;

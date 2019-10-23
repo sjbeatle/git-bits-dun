@@ -1,0 +1,102 @@
+@import 'variables';
+@import 'mixins';
+@import '../node_modules/reset-css/sass/reset';
+
+* {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  @include antialias();
+}
+
+html {
+  font-size: $font-size + px;
+  color: $black;
+  background-color: $background-base;
+}
+
+/*------------------------------------*\
+  #HELPER SELECTORS
+\*------------------------------------*/
+a,
+.h-link {
+  color: $link-color;
+  background: none;
+  border: none;
+  box-shadow: none;
+  transition: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    top: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  &:focus {
+    outline: 2px dashed $focus-outline-color;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.h-access-visible {
+  position: fixed;
+  left: 0;
+  top: -500px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.h-button-icon {
+  color: $link-color;
+
+  &:focus {
+    @include focus-base();
+  }
+}
+
+
+/*------------------------------------*\
+  #RESET STYLES
+\*------------------------------------*/
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  cursor: pointer;
+  -webkit-appearance: button;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  outline: none;
+}
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/* Make `a` like a button */
+[role="button"] {
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  white-space: pre;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
