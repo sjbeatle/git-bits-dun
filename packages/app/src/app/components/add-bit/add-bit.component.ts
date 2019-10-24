@@ -19,6 +19,9 @@ export class AddBitComponent implements OnInit {
   }
 
   addTodo() {
+    if (this.disallowed) {
+      return;
+    }
     let { todo } = this;
     todo = encodeURI(todo);
     this.isAdding = true;
