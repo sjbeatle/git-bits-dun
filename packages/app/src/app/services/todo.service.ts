@@ -33,6 +33,7 @@ export class TodoService {
             todo: decodeURI(payload.todo),
             createdDate: payload.createdDate,
             updatedDate: payload.updatedDate,
+            priority: payload.priority,
             _id: payload._id,
           });
           return true;
@@ -56,12 +57,14 @@ export class TodoService {
               createdDate,
               updatedDate,
               _id,
+              priority,
             } = item;
 
             return {
               createdDate,
               updatedDate,
               _id,
+              priority,
               todo: decodeURI(todo),
             };
           });
