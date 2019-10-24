@@ -1,0 +1,35 @@
+@import 'variables';
+@import 'mixins';
+
+.bit {
+  @include flexbox();
+  margin: get-rem(15) 0;
+
+  &__col2 {
+    @include flex-grow(1);
+  }
+
+  &__btn-delete {
+    margin-right: get-rem(5);
+    width: get-rem(30);
+    height: get-rem(30);
+
+    &:focus {
+      outline: 2px dashed $focus-outline-color;
+    }
+  }
+
+  &__label {
+    line-height: 1.5rem;
+  }
+
+  &__footer {
+    margin-top: get-rem(10);
+
+    &__date {
+      font-size: get-rem(12);
+      font-weight: bold;
+      color: $date-color;
+    }
+  }
+}
