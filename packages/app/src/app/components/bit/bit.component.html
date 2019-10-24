@@ -1,0 +1,21 @@
+<div class="bit">
+  <div class="bit__col1">
+    <button
+      class="bit__btn-delete"
+      title="Delete Bit"
+      aria-label="Delete Bit"
+      (click)="deleteBit()"
+      [disabled]="isDeleting"
+    ><fa-icon [icon]="circle"></fa-icon></button>
+  </div>
+
+  <div class="bit__col2">
+    <div class="bit__label">{{label}}</div>
+    <div class="bit__footer">
+      <div class="bit__footer__date">
+        <fa-icon [icon]="faCalendarDay"></fa-icon> {{date}}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="h-hr"></div>

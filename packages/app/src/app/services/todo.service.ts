@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { last, catchError } from 'rxjs/operators';
+import { last, catchError, map } from 'rxjs/operators';
 import { Logger } from './logger.service';
 import { MessageService } from './message.service';
 import { ITodo } from './types';
@@ -15,6 +15,8 @@ const config = {
   providedIn: 'root'
 })
 export class TodoService {
+  todos: ITodo[] = [];
+
   constructor(
     private logger: Logger,
     private http: HttpClient,
@@ -27,7 +29,12 @@ export class TodoService {
       .pipe(
         last((payload) => {
           const bit = payload.todo;
-          this.messageService.add(`Added: "${decodeURI(bit)}"`, 'success');
+          this.todos.push({
+            todo: decodeURI(payload.todo),
+            createdDate: payload.createdDate,
+            updatedDate: payload.updatedDate,
+            _id: payload._id,
+          });
           return true;
         }),
         catchError(() => {
@@ -40,7 +47,29 @@ export class TodoService {
 
   getTodos(): Observable<ITodo[]> {
     this.logger.log('Getting todos ...');
-    return this.http.get<ITodo[]>(config.endpoint);
+    return this.http.get<ITodo[]>(config.endpoint)
+      .pipe(
+        last((todos) => {
+          const todosMapped: ITodo[] = todos.map(item => {
+            const {
+              todo,
+              createdDate,
+              updatedDate,
+              _id,
+            } = item;
+
+            return {
+              createdDate,
+              updatedDate,
+              _id,
+              todo: decodeURI(todo),
+            };
+          });
+
+          this.todos = todosMapped;
+          return true;
+        }),
+      );
   }
 
   deleteTodos(): Observable<any> {
@@ -49,6 +78,7 @@ export class TodoService {
       .pipe(
         last(() => {
           this.messageService.add('Delete all success!', 'success');
+          this.todos = [];
           return true;
         }),
         catchError(() => {
@@ -61,6 +91,17 @@ export class TodoService {
 
   deleteTodo(id: string): Observable<any> {
     this.logger.log(`Deleting todo: ${id} ...`);
-    return this.http.delete(`${config.endpoint}/$id`);
+    return this.http.delete(`${config.endpoint}/${id}`)
+      .pipe(
+        last(() => {
+          this.todos = this.todos.filter(todo => todo._id !== id);
+          return true;
+        }),
+        catchError(() => {
+          const message = 'Delete bit error!';
+          this.messageService.add(message, 'error');
+          return throwError(message);
+        }),
+      );
   }
 }
