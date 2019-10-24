@@ -107,4 +107,27 @@ export class TodoService {
         }),
       );
   }
+
+  updateTodo(todo: ITodo): Observable<any> {
+    this.logger.log('Updating todos ...');
+    return this.http.put(`${config.endpoint}/${todo._id}`, todo)
+      .pipe(
+        last(() => {
+          const newTodos = this.todos.map(item => {
+            if (item._id === todo._id) {
+              item.priority = todo.priority;
+            }
+
+            return item;
+          });
+          this.todos = newTodos;
+          return true;
+        }),
+        catchError(() => {
+          const message = 'Update error!';
+          this.messageService.add(message, 'error');
+          return throwError(message);
+        }),
+      );
+  }
 }
