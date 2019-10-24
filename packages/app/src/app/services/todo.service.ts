@@ -29,7 +29,6 @@ export class TodoService {
       .pipe(
         last((payload) => {
           const bit = payload.todo;
-          this.messageService.add(`Added: "${decodeURI(bit)}"`, 'success');
           this.todos.push({
             todo: decodeURI(payload.todo),
             createdDate: payload.createdDate,
