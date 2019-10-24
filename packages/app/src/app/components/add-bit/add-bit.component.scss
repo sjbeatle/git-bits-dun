@@ -10,8 +10,32 @@
 
   &__footer {
     @include flexbox();
-    @include flex-direction(row-reverse);
+    @include justify-content(space-between);
+    @include align-items(center);
     padding-top: 1rem;
+
+    &__submit {
+
+      &__btn {
+
+        &[disabled] {
+          background-color: rgba($link-color, .7);
+        }
+      }
+    }
+
+    &__big-bit {
+      font-weight: 300;
+
+      input {
+        width: 1rem;
+        height: 1rem;
+        border: none;
+        background: $white;
+        margin: 0;
+        padding: 0;
+      }
+    }
   }
 
   &__hr {

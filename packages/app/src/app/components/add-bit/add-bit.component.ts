@@ -10,8 +10,13 @@ import { TodoService } from '../../services';
 export class AddBitComponent implements OnInit {
   todo = '';
   isAdding = false;
+  isBig = false;
 
   constructor(private todoService: TodoService) { }
+
+  setBigBit(ev) {
+    this.isBig = ev.target.checked;
+  }
 
   addTodo() {
     let { todo } = this;
@@ -19,10 +24,12 @@ export class AddBitComponent implements OnInit {
     this.isAdding = true;
     this.todoService.addTodo({
       todo,
+      priority: this.isBig,
     })
       .subscribe(() => {
         this.todo = '';
         this.isAdding = false;
+        this.isBig = false;
       });
   }
 
