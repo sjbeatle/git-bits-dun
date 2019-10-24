@@ -157,7 +157,6 @@ export class TodoService {
     const timer = new Date(now.getTime() + 30 * 60000);
     const todo = this.todos[index];
     todo.timer = timer.toISOString();
-    console.log('>> TESTING >> todo', todo);
 
     return this.updateTodo(todo);
   }
