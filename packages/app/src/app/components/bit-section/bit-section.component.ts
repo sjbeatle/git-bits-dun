@@ -8,7 +8,7 @@ import { ITodo } from 'src/app/services/types';
 })
 export class BitSectionComponent implements OnInit {
   @Input() todos: ITodo[];
-  @Input() title: 'string';
+  @Input() heading: 'string';
 
   constructor() { }
 

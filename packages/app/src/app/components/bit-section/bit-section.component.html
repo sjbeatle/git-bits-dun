@@ -1,5 +1,8 @@
-<div class="bit-section">
-  <h3 class="bit-section__title">{{title}}</h3>
+<div
+  *ngIf="todos.length"
+  class="bit-section"
+>
+  <h3 class="bit-section__title">{{heading}}</h3>
   <div class="h-hr h-hr--thick"></div>
 
   <ul>
