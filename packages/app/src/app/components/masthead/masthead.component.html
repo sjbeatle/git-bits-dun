@@ -11,5 +11,7 @@
     class="masthead__btn h-button-icon"
     aria-label="Delete All Bits"
     tabindex="1"
+    (click)="deleteTodos()"
+    [disabled]="isDeleting"
   ><fa-icon [icon]="faTrashAlt"></fa-icon></button>
 </header>

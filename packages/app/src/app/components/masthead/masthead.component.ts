@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { randomId } from '../../shared/utils';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
-import { ITodo } from '../../services/types';
 import { TodoService } from '../../services';
 
 @Component({
@@ -14,13 +13,17 @@ export class MastheadComponent implements OnInit {
   @Input() appTitle: string;
   ariaId = randomId();
   faTrashAlt = faTrashAlt;
-  todos: ITodo[];
+  isDeleting = false;
 
-  constructor(todoService: TodoService) {
-    this.todos = todoService.getTodos();
+  constructor(private todoService: TodoService) { }
+
+  deleteTodos() {
+    this.isDeleting = true;
+    this.todoService.deleteTodos()
+      .subscribe(re => {
+        this.isDeleting = false;
+      });
   }
 
-  ngOnInit() {
-    console.log(this.todos);
-  }
+  ngOnInit() { }
 }
