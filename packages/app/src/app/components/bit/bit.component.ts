@@ -32,9 +32,7 @@ export class BitComponent implements OnInit {
 
   setPriorty() {
     this.isReprioritizing = true;
-    const todo = { ...this.todo };
-    todo.priority = !this.priority;
-    this.todoService.updateTodo(todo)
+    this.todoService.updatePriority(this.todo._id, !this.priority)
       .subscribe(() => {
         this.isReprioritizing = false;
       });

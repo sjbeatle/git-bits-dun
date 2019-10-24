@@ -115,7 +115,7 @@ export class TodoService {
         last(() => {
           const newTodos = this.todos.map(item => {
             if (item._id === todo._id) {
-              item.priority = todo.priority;
+              item = todo;
             }
 
             return item;
@@ -129,5 +129,19 @@ export class TodoService {
           return throwError(message);
         }),
       );
+  }
+
+  updatePriority(id: string, priority: boolean) {
+    let todo: ITodo;
+
+    this.todos.some(item => {
+      if (item._id === id) {
+        todo = item;
+        todo.priority = priority;
+        return true;
+      }
+    });
+
+    return this.updateTodo(todo);
   }
 }
