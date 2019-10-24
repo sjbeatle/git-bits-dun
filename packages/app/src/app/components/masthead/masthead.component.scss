@@ -12,6 +12,7 @@
   box-shadow: $shadow-default;
   padding: 0 get-rem(19);
   height: $app-padding-top;
+  z-index: 10;
 
   @media (min-width: $md-min) {
     height: $app-padding-top-md;
