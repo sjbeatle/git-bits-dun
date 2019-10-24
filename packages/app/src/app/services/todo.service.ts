@@ -23,7 +23,19 @@ export class TodoService {
 
   addTodo(todo: ITodo): Observable<ITodo> {
     this.logger.log('Adding todo ...');
-    return this.http.post<ITodo>(config.endpoint, todo);
+    return this.http.post<ITodo>(config.endpoint, todo)
+      .pipe(
+        last((payload) => {
+          const bit = payload.todo;
+          this.messageService.add(`Added: "${decodeURI(bit)}"`, 'success');
+          return true;
+        }),
+        catchError(() => {
+          const message = 'Add bit error!';
+          this.messageService.add(message, 'error');
+          return throwError(message);
+        }),
+      );
   }
 
   getTodos(): Observable<ITodo[]> {
