@@ -14,6 +14,14 @@ html {
   background-color: $background-base;
 }
 
+body {
+  padding-top: $app-padding-top;
+
+  @media (min-width: $md-min) {
+    padding-top: $app-padding-top-md;
+  }
+}
+
 /*------------------------------------*\
   #HELPER SELECTORS
 \*------------------------------------*/
@@ -56,7 +64,7 @@ a,
   color: $link-color;
 
   &:focus {
-    @include focus-base();
+    outline: 2px dashed $focus-outline-color;
   }
 }
 
@@ -81,6 +89,10 @@ button {
   -moz-user-select: none;
   -ms-user-select: none;
   outline: none;
+
+  &[disabled] {
+    opacity: .7;
+  }
 }
 input::-moz-focus-inner,
 button::-moz-focus-inner {
