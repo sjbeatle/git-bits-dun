@@ -18,7 +18,7 @@ export class AllBitsComponent implements OnInit {
   constructor(public todoService: TodoService) { }
 
   sortTodos() {
-    console.log('>> TESTING >> sort me!');
+    this.sort = this.sort === 'ascending' ? 'descending' : 'ascending';
   }
 
   getTodos() {
@@ -27,12 +27,27 @@ export class AllBitsComponent implements OnInit {
       .subscribe((todos) => {
         this.isFetching = false;
         this.todos = todos;
-        console.log('>> TESTING >> todos', todos);
       });
   }
 
   get buttonLabel() {
     return `Sort bits by date ${this.sort}`;
+  }
+
+  get sortedTodos() {
+    const todos = this.todoService.todos
+      .sort((a, b) => {
+        const dateA = new Date(a.createdDate);
+        const dateB = new Date(b.createdDate);
+        const sort = this.sort === 'ascending'
+          ? dateA > dateB
+          : dateA < dateB;
+
+        return sort
+          ? -1
+          : 1;
+      });
+    return todos;
   }
 
   ngOnInit() {
