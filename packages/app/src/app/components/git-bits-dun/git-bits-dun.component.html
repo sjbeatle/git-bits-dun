@@ -15,7 +15,8 @@
       <div
         class="gbd-bit__header__timer"
         [ngClass]="{
-          'gbd-bit__header__timer--warn': timeRemaining < 10 * 60 * 1000,
+          'gbd-bit__header__timer--normal': timeRemaining >= 15 * 60 * 1000,
+          'gbd-bit__header__timer--warn': timeRemaining < 15 * 60 * 1000,
           'gbd-bit__header__timer--alert': timeRemaining < 5 * 60 * 1000
         }"
       >

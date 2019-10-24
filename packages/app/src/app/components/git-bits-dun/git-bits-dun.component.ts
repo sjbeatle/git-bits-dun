@@ -55,6 +55,7 @@ export class GitBitsDunComponent implements OnInit {
     this.clearTimer();
     timer = setInterval(() => {
       const time = timeRemaining(this.todo && this.todo.timer);
+      this.timeRemaining = time;
       buffer += 1;
 
       if (time <= 0 && buffer >= 3) {

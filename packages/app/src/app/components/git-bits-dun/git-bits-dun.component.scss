@@ -40,10 +40,13 @@ $p: get-rem(10);
     border-bottom: 1px solid $light-gray;
 
     &__timer {
-      color: $timer;
 
       .ng-fa-icon {
         font-size: get-rem(16);
+      }
+
+      &--normal {
+        color: $timer;
       }
 
       &--warn {
