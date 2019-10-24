@@ -1,0 +1,23 @@
+<div class="add-bit">
+  <h2 class="add-bit__header">Add a bit...</h2>
+  <input
+    class="add-bit__input"
+    type="text"
+    placeholder="Add bits and pieces"
+    [(ngModel)]="todo"
+    (keyup)="onKey($event)"
+  />
+  <div class="add-bit__footer">
+    <div class="add-bit__footer__submit">
+      <button
+        class="h-cta"
+        [ngClass]="{
+          'h-cta--disallow': disallowed
+        }"
+        (click)='addTodo()'
+        [disabled]="disabled"
+      >Add a Bit</button>
+    </div>
+  </div>
+  <div class="add-bit__hr h-hr"></div>
+</div>

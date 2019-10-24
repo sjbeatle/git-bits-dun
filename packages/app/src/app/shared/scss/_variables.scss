@@ -10,7 +10,8 @@ $pure-white: #fff;
 $pure-black: #000;
 $shadow-transparent: 0px 0px 5px rgba(0, 0, 0, 0);
 $shadow-default: 0px 0px 5px rgba(0, 0, 0, .25);
-$shadow-blue: 0px 0px 7px rgba(#6399b8, 1);
+$shadow-light: 0px 0px 5px rgba(0, 0, 0, .15);
+$shadow-purple: 0px 0px 7px rgba(#781bb6, .5);
 
 /*------------------------------------*\
   #CONTEXTUAL COLORS
@@ -39,10 +40,11 @@ $border-default: 1px solid #ababab;
 /*------------------------------------*\
   #FONTS
 \*------------------------------------*/
-$font-size: 19;
+$base-font-size: 19px; // actual base font size
+$base-scale: 19; // for calculating rem values
 
 @function get-rem($size) {
-  @return ($size / $font-size) + rem;
+  @return ($size / $base-scale) + rem;
 }
 
 

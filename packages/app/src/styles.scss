@@ -9,7 +9,7 @@
 }
 
 html {
-  font-size: $font-size + px;
+  font-size: $base-font-size;
   color: $black;
   background-color: $background-base;
 }
@@ -68,10 +68,41 @@ a,
   }
 }
 
+.h-cta {
+  padding: .5rem 1rem;
+  color: $white;
+  background-color: $link-color;
+  border-radius: get-rem(2);
+
+  &--disallow,
+  &--disallow[disabled] {
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    outline: 2px dashed $focus-outline-color;
+    outline-offset: 2px;
+  }
+}
+
+.h-hr {
+  display: block;
+  height: 0px;
+  margin: 0px;
+  padding: 0px;
+  border-bottom: $border-default;
+}
+
 
 /*------------------------------------*\
   #RESET STYLES
 \*------------------------------------*/
+h2 {
+  font-size: get-rem(39);
+  font-family: 'Open Sans Condensed';
+  font-weight: 300;
+}
+
 input[type="submit"],
 input[type="reset"],
 input[type="button"],
@@ -92,6 +123,7 @@ button {
 
   &[disabled] {
     opacity: .7;
+    cursor: progress;
   }
 }
 input::-moz-focus-inner,
