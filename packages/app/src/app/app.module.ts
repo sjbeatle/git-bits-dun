@@ -11,6 +11,7 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { AddBitComponent } from './components/add-bit/add-bit.component';
 import { AllBitsComponent } from './components/all-bits/all-bits.component';
 import { BitComponent } from './components/bit/bit.component';
+import { BitSectionComponent } from './components/bit-section/bit-section.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BitComponent } from './components/bit/bit.component';
     AddBitComponent,
     AllBitsComponent,
     BitComponent,
+    BitSectionComponent,
   ],
   imports: [
     BrowserModule,

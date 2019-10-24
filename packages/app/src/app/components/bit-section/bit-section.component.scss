@@ -1,0 +1,11 @@
+@import 'variables';
+
+.bit-section {
+  margin-top: 2rem;
+
+  &__title {
+    font-size: get-rem(16);
+    font-weight: bold;
+    margin-bottom: get-rem(5);
+  }
+}
