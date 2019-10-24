@@ -16,12 +16,16 @@
         <fa-icon [icon]="faCalendarDay"></fa-icon> {{date}}
       </div>
 
-      <div
-        *ngIf="priority"
+      <button
         class="bit__footer__priority"
+        [title]="flagAriaLabel"
+        [attr.aria-label]="flagAriaLabel"
+        (click)="setPriorty()"
+        [disabled]="isReprioritizing"
       >
-        <fa-icon class="bit__footer__priority__icon" [icon]="faFlag"></fa-icon>
-      </div>
+        <span aria-hidden="true">Big bit&nbsp;</span>
+        <fa-icon class="bit__footer__priority__icon" [icon]="flag"></fa-icon>
+      </button>
     </div>
   </div>
 </div>

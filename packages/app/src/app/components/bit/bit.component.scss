@@ -35,10 +35,16 @@
     }
 
     &__priority {
+      font-weight: bold;
       font-size: get-rem(12);
 
       &__icon {
         color: $link-color;
+      }
+
+      &:focus {
+        outline: 2px dashed $focus-outline-color;
+        outline-offset: 2px;
       }
     }
   }
