@@ -58,6 +58,7 @@ export class TodoService {
               updatedDate,
               _id,
               priority,
+              timer,
             } = item;
 
             return {
@@ -65,6 +66,7 @@ export class TodoService {
               updatedDate,
               _id,
               priority,
+              timer,
               todo: decodeURI(todo),
             };
           });
