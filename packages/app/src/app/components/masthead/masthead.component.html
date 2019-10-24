@@ -8,6 +8,7 @@
     ariaLabelledBy="{{ariaId}}"
   ></app-logo>
   <button
+    *ngIf="todoService.todos.length"
     class="masthead__btn h-button-icon"
     title="Delete All Bits"
     aria-label="Delete All Bits"

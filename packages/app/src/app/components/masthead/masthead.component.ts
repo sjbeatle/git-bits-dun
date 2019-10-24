@@ -15,7 +15,7 @@ export class MastheadComponent implements OnInit {
   faTrashAlt = faTrashAlt;
   isDeleting = false;
 
-  constructor(private todoService: TodoService) { }
+  constructor(public todoService: TodoService) { }
 
   deleteTodos() {
     this.isDeleting = true;
