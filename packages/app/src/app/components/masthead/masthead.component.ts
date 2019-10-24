@@ -20,7 +20,7 @@ export class MastheadComponent implements OnInit {
   deleteTodos() {
     this.isDeleting = true;
     this.todoService.deleteTodos()
-      .subscribe(re => {
+      .subscribe(() => {
         this.isDeleting = false;
       });
   }
