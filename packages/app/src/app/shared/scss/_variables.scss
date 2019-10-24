@@ -1,3 +1,5 @@
+@import 'mixins';
+
 /*------------------------------------*\
   #COLORS
 \*------------------------------------*/
@@ -8,7 +10,8 @@ $pure-white: #fff;
 $pure-black: #000;
 $shadow-transparent: 0px 0px 5px rgba(0, 0, 0, 0);
 $shadow-default: 0px 0px 5px rgba(0, 0, 0, .25);
-$shadow-blue: 0px 0px 7px rgba(#6399b8, 1);
+$shadow-light: 0px 0px 5px rgba(0, 0, 0, .15);
+$shadow-purple: 0px 0px 7px rgba(#781bb6, .5);
 
 /*------------------------------------*\
   #CONTEXTUAL COLORS
@@ -21,11 +24,11 @@ $focus-outline-color: #781bb6;
 $background-base: #e1e3e5;
 $background-masthead: $white;
 
-
-/*------------------------------------*\
-  #BOX-MODEL
-\*------------------------------------*/
-$page-padding: 1rem;
+// messages
+$background-error: #fcd6d4;
+$background-success: #ceede3;
+$border-error: #dd2113;
+$border-success: #27aa7c;
 
 
 /*------------------------------------*\
@@ -37,10 +40,11 @@ $border-default: 1px solid #ababab;
 /*------------------------------------*\
   #FONTS
 \*------------------------------------*/
-$font-size: 19;
+$base-font-size: 19px; // actual base font size
+$base-scale: 19; // for calculating rem values
 
 @function get-rem($size) {
-  @return ($size / $font-size) + rem;
+  @return ($size / $base-scale) + rem;
 }
 
 
@@ -48,3 +52,10 @@ $font-size: 19;
   #GRID BREAKPOINTS
 \*------------------------------------*/
 $md-min: 600px;
+
+
+/*------------------------------------*\
+  #BOX-MODEL
+\*------------------------------------*/
+$app-padding-top: get-rem(50);
+$app-padding-top-md: get-rem(65);

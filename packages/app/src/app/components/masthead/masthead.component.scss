@@ -1,13 +1,21 @@
 @import 'variables';
+@import 'mixins';
 
 .masthead {
+  @include flexbox();
+  @include align-items(center);
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   background-color: $background-masthead;
   box-shadow: $shadow-default;
-  padding: get-rem(8) get-rem(19);
+  padding: 0 get-rem(19);
+  height: $app-padding-top;
+
+  @media (min-width: $md-min) {
+    height: $app-padding-top-md;
+  }
 
   &__logo {
     display: block;

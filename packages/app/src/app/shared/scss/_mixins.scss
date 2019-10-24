@@ -1,5 +1,3 @@
-@import 'variables';
-
 @mixin antialias {
   font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
@@ -16,10 +14,6 @@
     -moz-box-shadow: $x $y $blur $spread $color;
     box-shadow: $x $y $blur $spread $color;
   }
-}
-
-@mixin focus-base {
-  outline: 2px dashed $focus-outline-color;
 }
 
 /*------------------------------------*\

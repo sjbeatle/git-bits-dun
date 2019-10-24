@@ -1,0 +1,9 @@
+@import 'variables';
+
+$p: get-rem(19);
+
+.app-content {
+  padding: 0 $p get-rem(19*5) $p;
+  max-width: 600px;
+  margin: 0 auto;
+}
