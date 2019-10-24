@@ -8,6 +8,16 @@
     (keyup)="onKey($event)"
   />
   <div class="add-bit__footer">
+    <div class="add-bit__footer__big-bit">
+      <label id="big-bit-label">
+        <input
+          type="checkbox"
+          [(ngModel)]="isBig"
+        />
+        Big bit
+      </label>
+    </div>
+
     <div class="add-bit__footer__submit">
       <button
         class="h-cta"
