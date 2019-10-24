@@ -91,6 +91,17 @@ export class TodoService {
 
   deleteTodo(id: string): Observable<any> {
     this.logger.log(`Deleting todo: ${id} ...`);
-    return this.http.delete(`${config.endpoint}/$id`);
+    return this.http.delete(`${config.endpoint}/${id}`)
+      .pipe(
+        last(() => {
+          this.todos = this.todos.filter(todo => todo._id !== id);
+          return true;
+        }),
+        catchError(() => {
+          const message = 'Delete bit error!';
+          this.messageService.add(message, 'error');
+          return throwError(message);
+        }),
+      );
   }
 }
