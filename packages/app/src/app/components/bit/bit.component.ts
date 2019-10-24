@@ -56,6 +56,9 @@ export class BitComponent implements OnInit {
     return new Date(this.todo.createdDate).toLocaleDateString(undefined, {
       month: 'short',
       day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
     });
   }
 
