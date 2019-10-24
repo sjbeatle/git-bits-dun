@@ -9,11 +9,14 @@
     attr.aria-label="{{buttonLabel}}"
     (click)='sortTodos()'
   ><fa-icon [icon]="faSort"></fa-icon></button>
-  <div class="all-bits__hr h-hr h-hr--thick"></div>
 
-  <ul>
-    <li *ngFor="let todo of sortedTodos">
-      <app-bit [todo]="todo"></app-bit>
-    </li>
-  </ul>
+  <app-bit-section
+    title="Big Bits"
+    [todos]="priorityTodos"
+  ></app-bit-section>
+
+  <app-bit-section
+    title="Little Bits"
+    [todos]="normalTodos"
+  ></app-bit-section>
 </div>

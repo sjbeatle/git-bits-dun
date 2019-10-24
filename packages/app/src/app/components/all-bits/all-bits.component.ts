@@ -48,20 +48,18 @@ export class AllBitsComponent implements OnInit {
     return `Sort bits by date ${this.sort}`;
   }
 
-  get sortedTodos() {
-    /**
-     * divide and conquer!
-     */
-    const normal = this.sortByDate(
-      this.todoService.todos
-        .filter(todo => todo.priority === false),
-    );
-    const priority = this.sortByDate(
+  get priorityTodos() {
+    return this.sortByDate(
       this.todoService.todos
         .filter(todo => todo.priority === true),
     );
+  }
 
-    return priority.concat(normal);
+  get normalTodos() {
+    return this.sortByDate(
+      this.todoService.todos
+        .filter(todo => todo.priority === false),
+    );
   }
 
   ngOnInit() {
