@@ -72,6 +72,11 @@ export class TodoService {
           this.todos = todosMapped;
           return true;
         }),
+        catchError(() => {
+          const message = 'Error loading bits!';
+          this.messageService.add(message, 'error');
+          return throwError(message);
+        }),
       );
   }
 
