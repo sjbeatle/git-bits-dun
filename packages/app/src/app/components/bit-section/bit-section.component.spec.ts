@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BigBitsComponent } from './big-bits.component';
+import { BitSectionComponent } from './bit-section.component';
 
-describe('BigBitsComponent', () => {
-  let component: BigBitsComponent;
-  let fixture: ComponentFixture<BigBitsComponent>;
+describe('BitSectionComponent', () => {
+  let component: BitSectionComponent;
+  let fixture: ComponentFixture<BitSectionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BigBitsComponent ]
+      declarations: [ BitSectionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BigBitsComponent);
+    fixture = TestBed.createComponent(BitSectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
