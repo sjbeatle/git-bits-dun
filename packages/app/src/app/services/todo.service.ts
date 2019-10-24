@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { last, catchError } from 'rxjs/operators';
+import { last, catchError, map } from 'rxjs/operators';
 import { Logger } from './logger.service';
 import { MessageService } from './message.service';
 import { ITodo } from './types';
@@ -15,6 +15,8 @@ const config = {
   providedIn: 'root'
 })
 export class TodoService {
+  todos: ITodo[] = [];
+
   constructor(
     private logger: Logger,
     private http: HttpClient,
@@ -40,7 +42,29 @@ export class TodoService {
 
   getTodos(): Observable<ITodo[]> {
     this.logger.log('Getting todos ...');
-    return this.http.get<ITodo[]>(config.endpoint);
+    return this.http.get<ITodo[]>(config.endpoint)
+      .pipe(
+        last((todos) => {
+          const todosMapped: ITodo[] = todos.map(item => {
+            const {
+              todo,
+              createdDate,
+              updatedDate,
+              _id,
+            } = item;
+
+            return {
+              createdDate,
+              updatedDate,
+              _id,
+              todo: decodeURI(todo),
+            };
+          });
+
+          this.todos = todosMapped;
+          return true;
+        }),
+      );
   }
 
   deleteTodos(): Observable<any> {
