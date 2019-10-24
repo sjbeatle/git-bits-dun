@@ -24,12 +24,22 @@
   }
 
   &__footer {
+    @include flexbox();
+    @include justify-content(space-between);
     margin-top: get-rem(10);
 
     &__date {
       font-size: get-rem(12);
       font-weight: bold;
       color: $date-color;
+    }
+
+    &__priority {
+      font-size: get-rem(12);
+
+      &__icon {
+        color: $link-color;
+      }
     }
   }
 }

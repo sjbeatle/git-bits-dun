@@ -15,6 +15,13 @@
       <div class="bit__footer__date">
         <fa-icon [icon]="faCalendarDay"></fa-icon> {{date}}
       </div>
+
+      <div
+        *ngIf="priority"
+        class="bit__footer__priority"
+      >
+        <fa-icon class="bit__footer__priority__icon" [icon]="faFlag"></fa-icon>
+      </div>
     </div>
   </div>
 </div>

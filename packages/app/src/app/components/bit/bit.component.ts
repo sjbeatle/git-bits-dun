@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ITodo } from 'src/app/services/types';
 import { faCircle as faCircleO } from '@fortawesome/free-regular-svg-icons';
-import { faCircle, faCalendarDay } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faCalendarDay, faFlag } from '@fortawesome/free-solid-svg-icons';
 
 import { TodoService } from '../../services';
 
@@ -13,6 +13,7 @@ import { TodoService } from '../../services';
 export class BitComponent implements OnInit {
   @Input() todo: ITodo;
   isDeleting = false;
+  faFlag = faFlag;
   faCircle = faCircle;
   faCircleO = faCircleO;
   faCalendarDay = faCalendarDay;
@@ -29,6 +30,10 @@ export class BitComponent implements OnInit {
 
   get todoId() {
     return this.todo._id;
+  }
+
+  get priority() {
+    return this.todo.priority;
   }
 
   get label() {
