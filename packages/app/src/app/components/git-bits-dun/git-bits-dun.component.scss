@@ -1,0 +1,62 @@
+@import 'variables';
+@import 'mixins';
+
+.gbd-btn,
+.gbd-bit {
+  margin: 3rem auto -1rem auto;
+}
+
+.gbd-btn {
+  display: block;
+  width: 240px;
+  transition: box-shadow 500ms;
+
+  &[disabled] {
+    background-color: rgba($link-color, .7);
+  }
+
+  &:hover {
+    box-shadow: $shadow-purple;
+  }
+
+  &[disabled]:hover {
+    box-shadow: none;
+  }
+}
+
+$p: get-rem(10);
+
+.gbd-bit {
+  background: $white;
+  border-radius: get-rem(2);
+  box-shadow: $shadow-purple;
+
+  &__header {
+    @include flexbox();
+    @include justify-content(space-between);
+    font-family: 'Open Sans Condensed';
+    font-weight: bold;
+    padding: $p;
+    border-bottom: 1px solid $light-gray;
+
+    &__timer {
+      color: $timer;
+
+      .ng-fa-icon {
+        font-size: get-rem(16);
+      }
+
+      &--warn {
+        color: $timer-warn;
+      }
+
+      &--alert {
+        color: $timer-alert;
+      }
+    }
+  }
+
+  &__bit {
+    padding: 0 $p $p $p;
+  }
+}
