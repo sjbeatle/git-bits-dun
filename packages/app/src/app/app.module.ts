@@ -13,6 +13,7 @@ import { AllBitsComponent } from './components/all-bits/all-bits.component';
 import { BitComponent } from './components/bit/bit.component';
 import { BitSectionComponent } from './components/bit-section/bit-section.component';
 import { GitBitsDunComponent } from './components/git-bits-dun/git-bits-dun.component';
+import { TimerComponent } from './components/timer/timer.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { GitBitsDunComponent } from './components/git-bits-dun/git-bits-dun.comp
     BitComponent,
     BitSectionComponent,
     GitBitsDunComponent,
+    TimerComponent,
   ],
   imports: [
     BrowserModule,

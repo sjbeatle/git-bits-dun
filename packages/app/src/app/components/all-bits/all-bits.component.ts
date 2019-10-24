@@ -53,7 +53,7 @@ export class AllBitsComponent implements OnInit {
     return this.sortByDate(
       this.todoService.todos
         .filter(todo => {
-          const time = timeRemaining(todo);
+          const time = timeRemaining(todo.timer);
           return time <= 0 && todo.priority === true;
         }),
     );
@@ -63,10 +63,24 @@ export class AllBitsComponent implements OnInit {
     return this.sortByDate(
       this.todoService.todos
         .filter(todo => {
-          const time = timeRemaining(todo);
+          const time = timeRemaining(todo.timer);
           return time <= 0 && todo.priority === false;
         }),
     );
+  }
+
+  get timerTodo() {
+    let todo: ITodo;
+
+    this.todoService.todos.some((item) => {
+      const time = timeRemaining(item.timer);
+      if (time > 0) {
+        todo = item;
+        return true;
+      }
+    });
+
+    return todo;
   }
 
   ngOnInit() {

@@ -1,11 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { timeRemaining } from '../../shared/utils';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { faStopwatch } from '@fortawesome/free-solid-svg-icons';
-
-import { TodoService } from '../../services';
+import { timeRemaining } from '../../shared/utils';
 import { ITodo } from 'src/app/services/types';
 
+import { TodoService } from '../../services';
+
 let timer;
+let buffer = 0;
 
 @Component({
   selector: 'app-git-bits-dun',
@@ -13,10 +14,11 @@ let timer;
   styleUrls: ['./git-bits-dun.component.scss']
 })
 export class GitBitsDunComponent implements OnInit {
+  @Input() todo: ITodo;
   faStopwatch = faStopwatch;
   timeRemaining: number;
   disabled = false;
-  timer: string;
+  timer = 'Calculating...';
 
   constructor(private todoService: TodoService) { }
 
@@ -27,6 +29,7 @@ export class GitBitsDunComponent implements OnInit {
     this.todoService.updateTodoTimer(randomIndex)
       .subscribe(() => {
         this.disabled = false;
+        this.startTimer();
       });
   }
 
@@ -34,22 +37,7 @@ export class GitBitsDunComponent implements OnInit {
     return this.todoService.todos.length;
   }
 
-  get doBit() {
-    let bit: ITodo;
-
-    this.todoService.todos.some((todo) => {
-      const time = timeRemaining(todo);
-      if (time > 0) {
-        this.timeRemaining = time;
-        bit = todo;
-        return true;
-      }
-    });
-
-    return bit;
-  }
-
-  calcTimer(time: number) {
+  timerDisplay(time: number) {
     const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((time % (1000 * 60)) / 1000);
 
@@ -58,19 +46,31 @@ export class GitBitsDunComponent implements OnInit {
 
   clearTimer() {
     if (timer) {
+      this.timer = '30:00';
       clearInterval(timer);
     }
   }
 
-  ngOnInit() {
+  startTimer() {
+    this.clearTimer();
     timer = setInterval(() => {
-      if (this.timeRemaining && !isNaN(this.timeRemaining)) {
-        this.timer = this.calcTimer(this.timeRemaining);
-      }
+      const time = timeRemaining(this.todo && this.todo.timer);
+      buffer += 1;
+      console.log('>> TESTING >> time', time, buffer);
 
-      if (this.timeRemaining < 0) {
+      if (time <= 0 && buffer >= 3) {
         this.clearTimer();
+      } else if (time > 0) {
+        this.timer = this.timerDisplay(time);
       }
     }, 1000);
+  }
+
+  ngOnInit() {
+    this.startTimer();
+  }
+
+  OnDestroy() {
+    this.clearTimer();
   }
 }

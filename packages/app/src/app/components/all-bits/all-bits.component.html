@@ -1,5 +1,6 @@
 <app-git-bits-dun
-  *ngIf="todoService.todos.length > 4"
+  *ngIf="timerTodo || todoService.todos.length > 4"
+  [todo]="timerTodo"
 ></app-git-bits-dun>
 
 <div
