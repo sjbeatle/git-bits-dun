@@ -15,7 +15,7 @@ export class AllBitsComponent implements OnInit {
   isFetching = true;
   todos: ITodo[] = [];
 
-  constructor(private todoService: TodoService) { }
+  constructor(public todoService: TodoService) { }
 
   sortTodos() {
     console.log('>> TESTING >> sort me!');
