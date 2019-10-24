@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../../services';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-messages',
@@ -6,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./messages.component.scss']
 })
 export class MessagesComponent implements OnInit {
+  faTimes = faTimes;
 
-  constructor() { }
+  constructor(public messageService: MessageService) { }
 
   ngOnInit() {
   }
-
 }

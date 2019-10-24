@@ -1,1 +1,22 @@
-<p>messages works!</p>
+<div
+  class="messages"
+  role="alert"
+  *ngIf="messageService.messages.length"
+>
+  <button
+    class="messages__button h-button-icon"
+    aria-label="Clear Messages"
+    (click)="messageService.clear()"
+  ><fa-icon [icon]="faTimes"></fa-icon></button>
+  <div
+    *ngFor='let message of messageService.messages'
+  >
+    <div
+      class="messages__message"
+      [ngClass]="{
+        'messages__message--success': message.type === 'success',
+        'messages__message--error': message.type === 'error'
+      }"
+    >{{message.message}}</div>
+  </div>
+</div>

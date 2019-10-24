@@ -1,0 +1,37 @@
+@import 'variables';
+
+$p: get-rem(12);
+$button-size: get-rem(40);
+
+.messages {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 $p;
+  background-color: rgba($white, .4);
+
+  &__button {
+    width: $button-size;
+    height: $button-size;
+    margin-top: $p;
+  }
+
+  &__message {
+    padding: $p;
+    border-radius: get-rem(2);
+    max-width: 400px;
+    text-align: center;
+    margin: $p auto;
+
+    &--success {
+      background-color: $background-success;
+      border: 1px solid $border-success;
+    }
+
+    &--error {
+      background-color: $background-error;
+      border: 1px solid $border-error;
+    }
+  }
+}
