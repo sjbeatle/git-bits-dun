@@ -7,6 +7,11 @@
 
   &__header {
     text-align: center;
+
+    &--end {
+      color: $gray;
+      margin-top: 1.5rem;
+    }
   }
 
   &__sort-btn {
