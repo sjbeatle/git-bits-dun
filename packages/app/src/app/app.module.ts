@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -14,6 +15,7 @@ import { LogoComponent } from './components/logo/logo.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FontAwesomeModule,
   ],
   providers: [],
