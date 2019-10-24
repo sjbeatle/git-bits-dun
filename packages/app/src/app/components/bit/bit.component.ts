@@ -12,6 +12,7 @@ import { TodoService } from '../../services';
 })
 export class BitComponent implements OnInit {
   @Input() todo: ITodo;
+  @Input() showFlag = true;
   isDeleting = false;
   isReprioritizing = false;
   faFlag = faFlag;
