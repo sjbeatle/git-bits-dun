@@ -10,6 +10,7 @@ import { LogoComponent } from './components/logo/logo.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { AddBitComponent } from './components/add-bit/add-bit.component';
 import { AllBitsComponent } from './components/all-bits/all-bits.component';
+import { BitComponent } from './components/bit/bit.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AllBitsComponent } from './components/all-bits/all-bits.component';
     MessagesComponent,
     AddBitComponent,
     AllBitsComponent,
+    BitComponent,
   ],
   imports: [
     BrowserModule,
