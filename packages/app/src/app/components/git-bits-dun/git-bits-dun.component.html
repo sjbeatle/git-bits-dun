@@ -1,0 +1,30 @@
+<div class="gbd">
+  <button
+    *ngIf="!doBit"
+    class="gbd-btn h-cta"
+    (click)='gitBitDun()'
+    [disabled]="disabled"
+  >Git Bits Dun!</button>
+
+  <div
+    *ngIf="doBit"
+    class="gbd-bit"
+  >
+    <div class="gbd-bit__header">
+      <div class="gbd-bit__header__title">Git-R-Dun! You have...</div>
+      <div
+        class="gbd-bit__header__timer"
+        [ngClass]="{
+          'gbd-bit__header__timer--warn': timeRemaining < 10 * 60 * 1000,
+          'gbd-bit__header__timer--alert':  timeRemaining < 5 * 60 * 1000
+        }"
+      >
+        <fa-icon [icon]="faStopwatch"></fa-icon> {{timer}}
+      </div>
+    </div>
+
+    <div class="gbd-bit__bit">
+      <app-bit [todo]="doBit" [highlight]="true"></app-bit>
+    </div>
+  </div>
+</div>

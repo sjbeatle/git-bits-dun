@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faSort } from '@fortawesome/free-solid-svg-icons';
+import { timeRemaining } from '../../shared/utils';
 import { ITodo } from '../../services/types';
 
 import { TodoService } from '../../services';
@@ -51,14 +52,20 @@ export class AllBitsComponent implements OnInit {
   get priorityTodos() {
     return this.sortByDate(
       this.todoService.todos
-        .filter(todo => todo.priority === true),
+        .filter(todo => {
+          const time = timeRemaining(todo);
+          return time <= 0 && todo.priority === true;
+        }),
     );
   }
 
   get normalTodos() {
     return this.sortByDate(
       this.todoService.todos
-        .filter(todo => todo.priority === false),
+        .filter(todo => {
+          const time = timeRemaining(todo);
+          return time <= 0 && todo.priority === false;
+        }),
     );
   }
 

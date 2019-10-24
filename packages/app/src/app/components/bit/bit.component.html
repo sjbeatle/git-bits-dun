@@ -17,6 +17,7 @@
       </div>
 
       <button
+        *ngIf="!highlight"
         class="bit__footer__priority"
         [title]="flagAriaLabel"
         [attr.aria-label]="flagAriaLabel"
@@ -29,4 +30,4 @@
     </div>
   </div>
 </div>
-<div class="h-hr"></div>
+<div *ngIf="!highlight" class="h-hr"></div>

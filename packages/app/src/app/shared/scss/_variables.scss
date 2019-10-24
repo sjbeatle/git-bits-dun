@@ -5,6 +5,8 @@
 \*------------------------------------*/
 $black: #232323;
 $white: #fdfdfd;
+$light-gray: #e1e3e5;
+$gray: #ababab;
 
 $pure-white: #fff;
 $pure-black: #000;
@@ -21,7 +23,7 @@ $link-color: #6399b8;
 $focus-outline-color: #781bb6;
 
 // backgrounds
-$background-base: #e1e3e5;
+$background-base: $light-gray;
 $background-masthead: $white;
 
 // messages
@@ -32,6 +34,11 @@ $border-success: #27aa7c;
 
 // bit
 $date-color: #590d08;
+
+// timer
+$timer: #098b5d;
+$timer-warn: #e6830b;
+$timer-alert: #dd2113;
 
 
 /*------------------------------------*\

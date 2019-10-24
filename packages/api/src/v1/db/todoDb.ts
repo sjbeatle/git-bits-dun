@@ -17,6 +17,7 @@ const mongoUri = `mongodb://${DB_USER}:${DB_PASS}@${DB_HOST_1}:${DB_PORT},${DB_H
 export const TodoSchema: Schema = new Schema({
   createdDate: { type: String },
   priority: { type: Boolean },
+  timer: { type: String },
   todo: { type: String, required: true },
   updatedDate: { type: String },
 });
