@@ -73,6 +73,7 @@ export class TodoService {
       .pipe(
         last(() => {
           this.messageService.add('Delete all success!', 'success');
+          this.todos = [];
           return true;
         }),
         catchError(() => {
