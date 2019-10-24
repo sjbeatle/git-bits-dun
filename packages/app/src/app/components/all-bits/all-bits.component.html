@@ -1,4 +1,7 @@
-<div class="all-bits">
+<div
+  *ngIf="todoService.todos.length"
+  class="all-bits"
+>
   <h2 class="all-bits__header">All the bits...</h2>
   <button
     class="all-bits__sort-btn h-button-icon"
@@ -6,4 +9,11 @@
     attr.aria-label="{{buttonLabel}}"
     (click)='sortTodos()'
   ><fa-icon [icon]="faSort"></fa-icon></button>
+  <div class="all-bits__hr h-hr h-hr--thick"></div>
+
+  <ul>
+    <li *ngFor="let todo of sortedTodos">
+      <app-bit [todo]="todo"></app-bit>
+    </li>
+  </ul>
 </div>
