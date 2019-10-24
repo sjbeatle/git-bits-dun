@@ -1,0 +1,20 @@
+@import 'variables';
+@import 'mixins';
+
+.all-bits {
+  position: relative;
+  margin-top: get-rem(38);
+
+  &__header {
+    text-align: center;
+  }
+
+  &__sort-btn {
+    position: absolute;
+    width: get-rem(40);
+    height: get-rem(40);
+    font-size: get-rem(20);
+    top: 0;
+    right: 0;
+  }
+}
