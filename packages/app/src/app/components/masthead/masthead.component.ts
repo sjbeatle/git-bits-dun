@@ -25,5 +25,9 @@ export class MastheadComponent implements OnInit {
       });
   }
 
+  get showTrash() {
+    return this.todoService.todos.length > 1;
+  }
+
   ngOnInit() { }
 }
